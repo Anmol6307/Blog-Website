@@ -11,7 +11,7 @@ if ($row > 0) {
 
 ?>
         <?php
-        
+
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -30,20 +30,19 @@ if ($row > 0) {
 
         ?>
 
-        <header class="masthead" style="background-image: url('./admin/upload/<?php echo $row['image'] ?>')">
-            <div class="container position-relative px-4 px-lg-5">
+        <header class="masthead mb-2" style="background-image: url('./admin/upload/<?php echo $row['image'] ?>')">
+            <div class="container-fluid position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
                             <h1><?php echo $row['title']; ?></h1>
-
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Main Content-->
-        <main class="mb-4">
+        <main class="mb-2">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -57,41 +56,42 @@ if ($row > 0) {
 
 <!-- Main Body -->
 <section>
-    <div class="container">
-        <div class="row">
-
-            <div class="col-sm-5 col-md-6 col-12 pb-4">
-                <?php
-                $res = mysqli_query($conn, "select * from tbl_comment");
-                $row = mysqli_num_rows($res);
-                if ($row > 0) {
-                    while ($row = mysqli_fetch_array($res)) {
-
-                ?>
-                        <h1>Comments</h1>
-                        <div class="comment mt-4 text-justify float-left"> <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40">
-                            <h4><?php echo $row['name'] ?></h4> <span><?php echo $row['date'] ?></span> <br>
-                            <p><?php echo $row['message']; ?></p>
-
-                        </div>
-
-                <?php }
-                } ?>
-            </div>
-            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+    <div class="container bg-info rounded-circle mb-5">
+        <div class="row ">         
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 col-12 mt-5">
                 <form id="algin-form" method="post">
                     <div class="form-group">
                         <h4>Leave a comment</h4> <label for="message">Message</label> <textarea name="message" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
                     </div>
                     <div class="form-group"> <label for="name">Name</label> <input type="text" name="name" id="fullname" class="form-control"> </div>
                     <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" id="email" class="form-control"> </div>
-
                     <div class="form-group"> <button type="submit" id="post" name="submit" class="btn btn-primary">Post Comment</button> </div>
                 </form>
+            </div>
+            <div class="col-sm-5 col-md-4 col-12 pb-4 offset-sm-2">
+            <h1 class="text-dark text-center bg-warning mb-0 mt-4">Comments</h1>
+            
+                <?php
+                $res = mysqli_query($conn, "select * from tbl_comment");
+                $row = mysqli_num_rows($res);
+                if ($row > 0) {
+                    while ($row = mysqli_fetch_array($res)) {
+
+                ?>                       
+                        <div class="comment mt-1 text-justify float-left" style="width: 360px; height:auto"> <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40">
+                            <h4><?php echo $row['name'] ?></h4> <span><?php echo $row['date'] ?></span> <br>
+                            <p><?php echo $row['message']; ?></p>
+                        </div>
+
+                <?php }
+                } ?>
             </div>
         </div>
     </div>
 </section>
+
+<?php include('footer.php'); ?>
+
 <style type="text/css">
     /*   .navbar-nav {
     width: 100%

@@ -29,9 +29,9 @@ include('header.php');
                     <div class="col">
                         <a href="blog.php">
                             <div class="card h-100">
-                                <img src="./admin//upload/<?php echo $row['image'] ?>" class="card-img-top" style="height:200px;" alt="...">
+                                <img src="./admin//upload/<?php echo $row['image'] ?>" class="card-img-top rounded-circle" style="height:200px;" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $row['category']; ?></h5>
+                                    <h5 class="card-title text-center"><?php echo $row['category']; ?></h5>
                                </div>
                             </div>
                         </a>

@@ -27,10 +27,10 @@ include('header.php');
 
             ?>
                     <div class="col-sm-4">
-                        <div class="card">
-                            <a href="single_blog.php?id=<?php echo $row['id'] ?>"><img src="./admin/upload/<?php echo $row['image'] ?>" style="height:400px;" class="card-img-top" alt="..."></a>
+                        <div class="card" style="width: auto; height: 570px;">
+                            <a href="single_blog.php?id=<?php echo $row['id'] ?>"><img src="./admin/upload/<?php echo $row['image'] ?>" style="height:300px;" class="card-img-top " alt="..."></a>
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                                <h5 class="card-title text-center"><?php echo $row['title']; ?></h5>
                                 <p class="card-text"><?php echo $row['description']; ?></p>
                             </div>
                         </div>
